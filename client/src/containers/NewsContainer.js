@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticlesComponent from '../components/ArticlesComponent'
+import JournalistComponent from '../components/JournalistComponent'
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class NewsContainer extends React.Component {
         <div>
         <h1>Joke News Inc. "Is it a joke, or is it a weird truth..."</h1>
         <ArticlesComponent articles={this.state.articles}/>
+        <JournalistComponent journalists={this.state.journalists}/>
         </div>
       );
     }
