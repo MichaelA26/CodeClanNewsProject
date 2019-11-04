@@ -15,7 +15,6 @@ const ArticleList = ({articles}) => {
     <th>Date</th>
     <th>Category</th>
     </tr>
-
     {articlesNodes}
     </table>
   )
