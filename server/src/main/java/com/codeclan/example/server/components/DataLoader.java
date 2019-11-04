@@ -1,4 +1,4 @@
-package com.codeclan.example.server.componenets;
+package com.codeclan.example.server.components;
 
 import com.codeclan.example.server.models.Article;
 import com.codeclan.example.server.models.Journalist;
