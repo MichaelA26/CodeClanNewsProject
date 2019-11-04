@@ -8,8 +8,7 @@ const ArticleList = ({articles}) => {
     )
   })
   return(
-    <div className = "table" >
-      <tbody>
+      <table>
         <tr>
           <th>Headline</th>
           <th>Summary</th>
@@ -17,8 +16,7 @@ const ArticleList = ({articles}) => {
           <th>Category</th>
         </tr>
           {articlesNodes}
-      </tbody>
-    </div>
+      </table>
   )
 }
 

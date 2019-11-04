@@ -8,7 +8,6 @@ const JournalistList = ({journalists}) => {
     )
   })
   return(
-    <div className = "table" >
       <table >
         <tr>
           <th> Name </th> 
@@ -17,7 +16,6 @@ const JournalistList = ({journalists}) => {
         </tr> 
           {journalistsNodes} 
       </table> 
-      </div>
   )
 }
 

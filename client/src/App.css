@@ -21,7 +21,23 @@
   color: #09d3ac;
 }
 
-.table{
-  border-style: solid;
+table {
   margin: auto;
+}
+td, th {
+  border:1px solid black;
+  border-collapse: collapse;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 0;
+}
+
+th{
+  background-color: #6e5f59;
+  color: white;
+}
+
+tr:hover {
+  background-color: #269ed1;
+  color: white;
 }
