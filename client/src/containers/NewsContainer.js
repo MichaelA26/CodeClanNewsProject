@@ -1,6 +1,9 @@
 import React from 'react';
+import HomePage from "../components/HomePage"
+import NavBar from "../components/NavBar"
 import ArticlesComponent from '../components/ArticlesComponent'
 import JournalistComponent from '../components/JournalistComponent'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -58,11 +61,23 @@ class NewsContainer extends React.Component {
 
     render(){
       return(
-        <div>
-        <h1>Joke News Inc. "Is it a joke, or is it a weird truth..."</h1>
+        <Router>
+          <React.Fragment>
+            <NavBar />
+            <Route exact path="/" component={HomePage} />
+            <Route 
+              path="/articles" 
+              render={() => <ArticlesComponent articles={this.state.articles}/>}
+              />
+            <Route 
+              path="/journalists" 
+              render={() => <JournalistComponent journalists={this.state.journalists} /> }
+              />
+          </React.Fragment>
+        </Router>
+        /* <h1>Joke News Inc. "Is it a joke, or is it a weird truth..."</h1>
         <ArticlesComponent articles={this.state.articles}/>
-        <JournalistComponent journalists={this.state.journalists}/>
-        </div>
+        <JournalistComponent journalists={this.state.journalists}/> */
       );
     }
   }
