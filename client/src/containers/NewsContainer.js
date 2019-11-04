@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePage from "../components/HomePage"
+import NavBar from "../components/NavBar"
 import ArticlesComponent from '../components/ArticlesComponent'
 import JournalistComponent from '../components/JournalistComponent'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -62,6 +63,7 @@ class NewsContainer extends React.Component {
       return(
         <Router>
           <React.Fragment>
+            <NavBar />
             <Route exact path="/" component={HomePage} />
             <Route 
               path="/articles" 
