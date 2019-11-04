@@ -1,13 +1,13 @@
-package com.codeclan.example.newsbackend;
+package com.codeclan.example.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NewsbackendApplication {
+public class ServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NewsbackendApplication.class, args);
+		SpringApplication.run(ServerApplication.class, args);
 	}
 
 }

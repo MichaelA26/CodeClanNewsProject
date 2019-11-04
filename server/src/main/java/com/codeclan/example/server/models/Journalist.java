@@ -1,22 +1,41 @@
-package com.codeclan.example.newsbackend.models;
+package com.codeclan.example.server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name="journalists")
 public class Journalist {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="first_name")
     private String firstName;
+
+    @Column(name="last_name")
     private String lastName;
+
+    @Column(name="phone_number")
     private String phoneNumber;
-    private ArrayList<Article> articles;
+
+    @JsonIgnoreProperties("journalist")
+    @OneToMany(mappedBy = "journalist", fetch = FetchType.LAZY)
+    private List<Article> articles;
+
+    @Column(name="employed")
     private Boolean employed;
 
-    public Journalist(String firstName, String lastName, String phoneNumber, Boolean employed) {
+    public Journalist(String firstName, String lastName, String phoneNumber) {
         this.firstName =firstName;
         this.lastName =lastName;
         this.phoneNumber =phoneNumber;
         this.articles = new ArrayList<>();
-        this.employed =employed;
+        this.employed = false;
     }
 
     public Journalist() {
@@ -54,11 +73,11 @@ public class Journalist {
         this.phoneNumber = phoneNumber;
     }
 
-    public ArrayList<Article> getArticles() {
+    public List<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(ArrayList<Article> articles) {
+    public void setArticles(List<Article> articles) {
         this.articles = articles;
     }
 

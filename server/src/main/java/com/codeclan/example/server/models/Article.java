@@ -1,13 +1,35 @@
-package com.codeclan.example.newsbackend.models;
+package com.codeclan.example.server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="articles")
 public class Article {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="headline")
     private String headline;
+
+    @Column(name="date")
     private String date;
+
+    @JsonIgnoreProperties("articles")
+    @ManyToOne
+    @JoinColumn(name="journalist_id", nullable = false)
     private Journalist journalist;
+
+    @Column(name="story")
     private String story;
+
+    @Column(name="summary")
     private String summary;
+
+    @Column(name="category")
     private String category;
 
     public Article(String headline, String date, Journalist journalist, String story, String summary, String category) {
