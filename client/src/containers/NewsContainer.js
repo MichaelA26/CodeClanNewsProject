@@ -1,8 +1,8 @@
 import React from 'react';
 import HomePage from "../components/HomePage"
 import NavBar from "../components/NavBar"
-import ArticlesComponent from '../components/ArticlesComponent'
-import JournalistComponent from '../components/JournalistComponent'
+import ArticlesComponent from '../components/articles/ArticlesComponent'
+import JournalistComponent from '../components/journalists/JournalistComponent'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import ErrorPage from "../components/ErrorPage"
 
