@@ -14,7 +14,6 @@ const JournalistList = ({journalists}) => {
     <th>Phone Number</th>
     <th>Employment Status</th>
     </tr>
-
     {journalistsNodes}
     </table>
   )

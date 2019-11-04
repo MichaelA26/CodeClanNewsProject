@@ -7,7 +7,6 @@ const JournalistDetail = ({journalist}) => {
     <td>{journalist.firstName} {journalist.lastName}</td>
     <td>{journalist.phoneNumber}</td>
     <td>{journalist.employed}</td>
-
     </tr>
   )
 }
