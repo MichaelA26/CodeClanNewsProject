@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar"
 import ArticlesComponent from '../components/ArticlesComponent'
 import JournalistComponent from '../components/JournalistComponent'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import ErrorPage from "../components/ErrorPage"
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -64,6 +65,9 @@ class NewsContainer extends React.Component {
         <Router>
           <React.Fragment>
             <NavBar />
+            < h1 > Joke News Inc.
+            "Is it a joke, or is it a weird truth..." </h1>
+            <Switch>
             <Route exact path="/" component={HomePage} />
             <Route 
               path="/articles" 
@@ -73,11 +77,10 @@ class NewsContainer extends React.Component {
               path="/journalists" 
               render={() => <JournalistComponent journalists={this.state.journalists} /> }
               />
+            <Route component={ErrorPage} />
+            </Switch>
           </React.Fragment>
         </Router>
-        /* <h1>Joke News Inc. "Is it a joke, or is it a weird truth..."</h1>
-        <ArticlesComponent articles={this.state.articles}/>
-        <JournalistComponent journalists={this.state.journalists}/> */
       );
     }
   }
