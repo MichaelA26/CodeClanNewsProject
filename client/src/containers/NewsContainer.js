@@ -11,53 +11,72 @@ class NewsContainer extends React.Component {
     super(props);
 
     this.state = {
-      articles: [{
-        id: 1,
-        headline: "Cookie Monster Crisis!",
-        summary: "Cookie Monster falls ill after big feast.",
-        date: "03/11/2019",
-        story: "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy. You've got no fans.",
-        category: "Celebrity",
-        journalist: {
-          id: "1",
-          firstName: "Weildstone",
-          lastName: "Raider",
-          phoneNumber: "080000 1066",
-          employed: "Yes"}
-        },
-        {
-          id: 2,
-          headline: "The Sinking City.",
-          summary: "Man trying to break World Record weight creates sinkhole",
-          date: "04/11/2019",
-          story: "Noel Edmunds has changed career and was attempting to become the worlds heaviest man. After indulging in snacks for over a yesar his weight grew so colossal that he inadvertantly created a sinkhole. He was swallowed up by the earth and is expected to hit the core of the Earth next Tuesday. Deal or no deal indeed.",
-          category: "Health",
-          journalist: {
-            id: "2",
-            firstName: "Barry",
-            lastName: "Trotter",
-            phoneNumber: "01506 123456",
-            employed: "Yes"}
-          }
+      articles: [
+        // {
+        // id: 1,
+        // headline: "Cookie Monster Crisis!",
+        // summary: "Cookie Monster falls ill after big feast.",
+        // date: "03/11/2019",
+        // story: "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy. You've got no fans.",
+        // category: "Celebrity",
+        // journalist: {
+        //   id: "1",
+        //   firstName: "Weildstone",
+        //   lastName: "Raider",
+        //   phoneNumber: "080000 1066",
+        //   employed: "Yes"}
+        // },
+        // {
+        //   id: 2,
+        //   headline: "The Sinking City.",
+        //   summary: "Man trying to break World Record weight creates sinkhole",
+        //   date: "04/11/2019",
+        //   story: "Noel Edmunds has changed career and was attempting to become the worlds heaviest man. After indulging in snacks for over a yesar his weight grew so colossal that he inadvertantly created a sinkhole. He was swallowed up by the earth and is expected to hit the core of the Earth next Tuesday. Deal or no deal indeed.",
+        //   category: "Health",
+        //   journalist: {
+        //     id: "2",
+        //     firstName: "Barry",
+        //     lastName: "Trotter",
+        //     phoneNumber: "01506 123456",
+        //     employed: "Yes"}
+        //   }
         ],
 
         journalists: [
-          {
-            id: 1,
-            firstName: "Weildstone",
-            lastName: "Raider",
-            phoneNumber: "080000 1066",
-            employed: "Yes"
-          },
-          {
-            id: 2,
-            firstName: "Barry",
-            lastName: "Trotter",
-            phoneNumber: "01506 123456",
-            employed: "Yes"
-          }
+          // {
+          //   id: 1,
+          //   firstName: "Weildstone",
+          //   lastName: "Raider",
+          //   phoneNumber: "080000 1066",
+          //   employed: "Yes"
+          // },
+          // {
+          //   id: 2,
+          //   firstName: "Barry",
+          //   lastName: "Trotter",
+          //   phoneNumber: "01506 123456",
+          //   employed: "Yes"
+          // }
         ]
       }
+    }
+
+    componentDidMount(){
+    
+      const promises = [
+      fetch('http://localhost:8080/articles')
+      .then(res => res.json())
+      .then(res => res["_embedded"])
+      .then(res => res.articles)
+      .then(data => this.setState({articles: data}))
+        ,
+      fetch("http://localhost:8080/journalists")
+      .then(res => res.json())
+      .then(res => res["_embedded"])
+      .then(res => res.journalists)
+      .then(data => this.setState({journalists: data}))
+      ]
+      Promise.all(promises)
     }
 
     render(){
