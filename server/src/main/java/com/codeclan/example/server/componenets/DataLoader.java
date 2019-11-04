@@ -30,5 +30,8 @@ public class DataLoader implements ApplicationRunner {
         Article article1 = new Article("Article1", "04/11/2019", journalist1, "Story1", "Summary of Story1", "Action");
         articleRepository.save(article1);
 
+        Article article2 = new Article("Article2", "01/11/2019", journalist1, "Story2", "Summary of Story2", "Romance");
+        articleRepository.save(article2);
+
     }
 }
