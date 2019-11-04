@@ -35,7 +35,7 @@ render(){
 return(
   <div>
   <h1>Hey!</h1>
-  <ArticlesComponent />
+  <ArticlesComponent articles={this.state.articles}/>
   </div>
 );
 }
