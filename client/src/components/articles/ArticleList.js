@@ -8,15 +8,17 @@ const ArticleList = ({articles}) => {
     )
   })
   return(
-    <table>
-    <tr>
-    <th>Headline</th>
-    <th>Summary</th>
-    <th>Date</th>
-    <th>Category</th>
-    </tr>
-    {articlesNodes}
-    </table>
+    <div className = "table" >
+      <tbody>
+        <tr>
+          <th>Headline</th>
+          <th>Summary</th>
+          <th>Date</th>
+          <th>Category</th>
+        </tr>
+          {articlesNodes}
+      </tbody>
+    </div>
   )
 }
 

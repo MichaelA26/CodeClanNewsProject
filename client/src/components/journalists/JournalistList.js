@@ -8,14 +8,16 @@ const JournalistList = ({journalists}) => {
     )
   })
   return(
-    <table>
-    <tr>
-    <th>Name</th>
-    <th>Phone Number</th>
-    <th>Employment Status</th>
-    </tr>
-    {journalistsNodes}
-    </table>
+    <div className = "table" >
+      <table >
+        <tr>
+          <th> Name </th> 
+          <th> Phone Number </th> 
+          <th> Employment Status </th> 
+        </tr> 
+          {journalistsNodes} 
+      </table> 
+      </div>
   )
 }
 
