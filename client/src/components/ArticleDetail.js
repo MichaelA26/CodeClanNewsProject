@@ -7,6 +7,7 @@ const ArticleDetail = ({article}) => {
     <td>{article.headline}</td>
     <td>{article.summary}</td>
     <td>{article.date}</td>
+    <td>{article.category}</td>
     </tr>
   )
 }

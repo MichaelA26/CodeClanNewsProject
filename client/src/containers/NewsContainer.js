@@ -12,33 +12,33 @@ class NewsContainer extends React.Component {
         summary: "Cookie Monster falls ill after big feast.",
         date: "03/11/2019",
         story: "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy. You've got no fans.",
-        catagory: "Celebrity",
+        category: "Celebrity",
         journalist: {
           id: "1",
           firstName: "Weildstone",
           lastName: "Raider",
           phoneNumber: "080000 1066",
           employed: "Yes"}
-      }],
+        }],
 
-      journalists: [{
-        id: 1,
-        firstName: "Weildstone",
-        lastName: "Raider",
-        phoneNumber: "080000 1066",
-        employed: "Yes"
-      }]
+        journalists: [{
+          id: 1,
+          firstName: "Weildstone",
+          lastName: "Raider",
+          phoneNumber: "080000 1066",
+          employed: "Yes"
+        }]
+      }
+    }
+
+    render(){
+      return(
+        <div>
+        <h1>Joke News Inc. "Is it a joke, or is it a weird truth..."</h1>
+        <ArticlesComponent articles={this.state.articles}/>
+        </div>
+      );
     }
   }
 
-render(){
-return(
-  <div>
-  <h1>Hey!</h1>
-  <ArticlesComponent articles={this.state.articles}/>
-  </div>
-);
-}
-}
-
-export default NewsContainer;
+  export default NewsContainer;

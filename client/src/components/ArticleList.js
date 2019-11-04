@@ -13,6 +13,7 @@ const ArticleList = ({articles}) => {
     <th>Headline</th>
     <th>Summary</th>
     <th>Date</th>
+    <th>Category</th>
     </tr>
 
     {articlesNodes}
