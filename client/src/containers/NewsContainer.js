@@ -1,4 +1,5 @@
 import React from 'react';
+import ArticlesComponent from '../components/ArticlesComponent'
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -8,9 +9,9 @@ class NewsContainer extends React.Component {
       articles: [{
         id: 1,
         headline: "Cookie Monster Crisis!",
-        summary: "Cookie Monster falls ill after big feasst.",
+        summary: "Cookie Monster falls ill after big feast.",
         date: "03/11/2019",
-        story: "After a glorious cookie feast, poor ol' cookie monster discovers that he is gluten intolerant.",
+        story: "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy. You've got no fans.",
         catagory: "Celebrity",
         journalist: {
           id: "1",
@@ -30,6 +31,14 @@ class NewsContainer extends React.Component {
     }
   }
 
+render(){
+return(
+  <div>
+  <h1>Hey!</h1>
+  <ArticlesComponent />
+  </div>
+);
+}
 }
 
 export default NewsContainer;
