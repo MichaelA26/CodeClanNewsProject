@@ -25,8 +25,10 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args){
 
         Journalist journalist1 = new Journalist("Journalist", "1", "0131 111 111");
+        journalistRepository.save(journalist1);
 
         Article article1 = new Article("Article1", "04/11/2019", journalist1, "Story1", "Summary of Story1", "Action");
+        articleRepository.save(article1);
 
     }
 }
