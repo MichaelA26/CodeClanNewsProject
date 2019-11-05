@@ -30,12 +30,12 @@ public class Journalist {
     @Column(name="employed")
     private Boolean employed;
 
-    public Journalist(String firstName, String lastName, String phoneNumber) {
+    public Journalist(String firstName, String lastName, String phoneNumber, Boolean employed) {
         this.firstName =firstName;
         this.lastName =lastName;
         this.phoneNumber =phoneNumber;
         this.articles = new ArrayList<>();
-        this.employed = false;
+        this.employed = employed;
     }
 
     public Journalist() {

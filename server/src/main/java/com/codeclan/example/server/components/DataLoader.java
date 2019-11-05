@@ -24,31 +24,31 @@ public class DataLoader implements ApplicationRunner {
 
   public void run(ApplicationArguments args){
 
-    Journalist journalist1 = new Journalist("Weildstone", "Raider", "0131 111 111");
+    Journalist journalist1 = new Journalist("Weildstone", "Raider", "0131 111 111", true);
     journalistRepository.save(journalist1);
 
-    Journalist journalist2 = new Journalist("Paris", "Hilton", "0800 00 1066");
+    Journalist journalist2 = new Journalist("Paris", "Hilton", "0800 00 1066", true);
     journalistRepository.save(journalist2);
 
-    Journalist journalist3 = new Journalist("J.K.", "Rowling", "01506 123 456");
+    Journalist journalist3 = new Journalist("J.K.", "Rowling", "01506 123 456", true);
     journalistRepository.save(journalist3);
 
-    Journalist journalist4 = new Journalist("H.J.", "Mulligatawny", "0131 111 111");
+    Journalist journalist4 = new Journalist("H.J.", "Mulligatawny", "0131 111 111", true);
     journalistRepository.save(journalist4);
 
-    Journalist journalist5 = new Journalist("xXKeYbOaRd", "WaRrIoRXx", "0131 111 111");
+    Journalist journalist5 = new Journalist("xXKeYbOaRd", "WaRrIoRXx", "0131 111 111", false);
     journalistRepository.save(journalist5);
 
-    Journalist journalist6 = new Journalist("Obi-Wan", "Kenobi", "No Phone, use the force.");
+    Journalist journalist6 = new Journalist("Obi-Wan", "Kenobi", "No Phone, use the force.", true);
     journalistRepository.save(journalist6);
 
-    Journalist journalist7 = new Journalist("Jeff", "Kaplan", "0453 999 213");
+    Journalist journalist7 = new Journalist("Jeff", "Kaplan", "0453 999 213", false);
     journalistRepository.save(journalist7);
 
-    Journalist journalist8 = new Journalist("Jackie", "Bird", "8888 888 888");
+    Journalist journalist8 = new Journalist("Jackie", "Bird", "8888 888 888", false);
     journalistRepository.save(journalist8);
 
-    Journalist journalist9 = new Journalist("Boromir", "of Gondor", "One does not simply phone Boromir of Gondor!");
+    Journalist journalist9 = new Journalist("Boromir", "of Gondor", "One does not simply phone Boromir of Gondor!", false);
     journalistRepository.save(journalist9);
 
 
