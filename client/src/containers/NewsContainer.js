@@ -12,15 +12,23 @@ class NewsContainer extends React.Component {
     super(props);
 
     this.state = {
-      articles: [],
-      journalists: []
-    }
+      articles: [
+
+        ],
+
+        journalists: [
+
+        ]
+      }
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
-  }
+    }
+  
 
-  componentDidMount() {
 
-    const promises = [
+
+    componentDidMount(){
+
+      const promises = [
       fetch('http://localhost:8080/articles')
         .then(res => res.json())
         .then(res => res["_embedded"])
