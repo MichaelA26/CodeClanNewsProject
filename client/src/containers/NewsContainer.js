@@ -5,59 +5,15 @@ import ArticlesComponent from '../components/articles/ArticlesComponent'
 import JournalistComponent from '../components/journalists/JournalistComponent'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import ErrorPage from "../components/ErrorPage"
+import AddJournalistForm from '../components/journalists/AddJournalistForm';
 
 class NewsContainer extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      articles: [
-        // {
-        // id: 1,
-        // headline: "Cookie Monster Crisis!",
-        // summary: "Cookie Monster falls ill after big feast.",
-        // date: "03/11/2019",
-        // story: "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy. You've got no fans.",
-        // category: "Celebrity",
-        // journalist: {
-        //   id: "1",
-        //   firstName: "Weildstone",
-        //   lastName: "Raider",
-        //   phoneNumber: "080000 1066",
-        //   employed: "Yes"}
-        // },
-        // {
-        //   id: 2,
-        //   headline: "The Sinking City.",
-        //   summary: "Man trying to break World Record weight creates sinkhole",
-        //   date: "04/11/2019",
-        //   story: "Noel Edmunds has changed career and was attempting to become the worlds heaviest man. After indulging in snacks for over a yesar his weight grew so colossal that he inadvertantly created a sinkhole. He was swallowed up by the earth and is expected to hit the core of the Earth next Tuesday. Deal or no deal indeed.",
-        //   category: "Health",
-        //   journalist: {
-        //     id: "2",
-        //     firstName: "Barry",
-        //     lastName: "Trotter",
-        //     phoneNumber: "01506 123456",
-        //     employed: "Yes"}
-        //   }
-        ],
-
-        journalists: [
-          // {
-          //   id: 1,
-          //   firstName: "Weildstone",
-          //   lastName: "Raider",
-          //   phoneNumber: "080000 1066",
-          //   employed: "Yes"
-          // },
-          // {
-          //   id: 2,
-          //   firstName: "Barry",
-          //   lastName: "Trotter",
-          //   phoneNumber: "01506 123456",
-          //   employed: "Yes"
-          // }
-        ]
+      articles: [],
+      journalists: []
       }
     }
 
@@ -122,6 +78,7 @@ class NewsContainer extends React.Component {
               path="/journalists" 
               render={() => <JournalistComponent journalists={this.state.journalists} /> }
               />
+            <Route path="/addjournalist" component={AddJournalistForm} />
             <Route component={ErrorPage} />
             </Switch>
           </React.Fragment>
