@@ -23,6 +23,7 @@ const ArticleList = ({
       <table>
         <tr>
           <th>Headline</th>
+          <th>Journalist</th>
           <th>Summary</th>
           <th>Date</th>
           <th>Category</th>

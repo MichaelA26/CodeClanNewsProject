@@ -13,14 +13,17 @@ const ArticleDetail = ({article, deleteArticle}) => {
     })
     deleteArticle(article.id);
   }
+
+  const journalist = article["_embedded"].journalist
   
   return (
     <tr>
-    <td>{article.headline}</td>
-    <td>{article.summary}</td>
-    <td>{article.date}</td>
-    <td>{article.category}</td>
-    <td onClick={handleDelete} >DELETE</td>
+      <td>{article.headline}</td>
+      <td>{journalist.firstName} {journalist.lastName} </td>
+      <td>{article.summary}</td>
+      <td>{article.date}</td>
+      <td>{article.category}</td>
+      <td onClick={handleDelete} >DELETE</td>
     </tr>
   )
 }
