@@ -6,6 +6,8 @@ import JournalistComponent from '../components/journalists/JournalistComponent'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ErrorPage from "../components/ErrorPage"
 import AddJournalistForm from '../components/journalists/AddJournalistForm';
+import AddArticleForm from '../components/articles/AddArticleForm';
+
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -80,6 +82,8 @@ class NewsContainer extends React.Component {
             />
             <Route path="/addjournalist"
               render={() => <AddJournalistForm onJournalistSubmit={this.onJournalistSubmit} />} />
+             <Route path="/addarticle"
+              render={() => <AddArticleForm journalists={this.state.journalists}/>} />
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
