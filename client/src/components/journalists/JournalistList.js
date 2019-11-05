@@ -1,6 +1,7 @@
 import React from 'react';
 import JournalistDetail from './JournalistDetail';
 
+
 const JournalistList = ({journalists}) => {
   const journalistsNodes = journalists.map((journalist) => {
     return (
@@ -8,6 +9,7 @@ const JournalistList = ({journalists}) => {
     )
   })
   return(
+    <React.Fragment>
       <table >
         <tr>
           <th> Name </th> 
@@ -16,6 +18,7 @@ const JournalistList = ({journalists}) => {
         </tr> 
           {journalistsNodes} 
       </table> 
+      </React.Fragment>
   )
 }
 

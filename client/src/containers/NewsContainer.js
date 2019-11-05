@@ -79,6 +79,32 @@ class NewsContainer extends React.Component {
       Promise.all(promises)
     }
 
+    //
+    // handleChange(event) {
+    //   const target = event.target;
+    //   const value = target.value;
+    //   const name = target.name;
+    //   let item = {...this.state.item};
+    //   item[name] = value;
+    //   this.setState({item});
+    // }
+  
+    // async handleSubmit(event) {
+    //   event.preventDefault();
+    //   const {item} = this.state;
+  
+    //   await fetch('http://localhost:8080/journalists', {
+    //     method: (item.id) ? 'PUT' : 'POST',
+    //     headers: {
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(item),
+    //   });
+    // }  
+
+//
+
     render(){
       return(
         <Router>
