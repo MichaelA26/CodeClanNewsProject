@@ -42,6 +42,14 @@ tr:hover {
   color: white;
 }
 
+button {
+  background-color: #6e5f59;
+  color: white;
+  border-radius: 10px;
+  font-family: 'Lilita One', cursive;
+  padding: 10px;
+}
+
 img {
   /* height: 50%;
   width: 50%; */
