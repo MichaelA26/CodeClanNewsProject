@@ -37,35 +37,21 @@ class NewsContainer extends React.Component {
   }
 
   onJournalistSubmit(newJournalist) {
-    const updatedJournalists = [...this.state.journalists, newJournalist]
-    this.setState({ journalists: updatedJournalists })
+    fetch('http://localhost:8080/journalists', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newJournalist),
+      })
+      .then(res => res.json())
+      .then(newEntry => {
+        const updatedJournalists = [...this.state.journalists, newEntry]
+        this.setState({ journalists: updatedJournalists })
+      })
   }
 
-  //
-  // handleChange(event) {
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //   let item = {...this.state.item};
-  //   item[name] = value;
-  //   this.setState({item});
-  // }
-
-  // async handleSubmit(event) {
-  //   event.preventDefault();
-  //   const {item} = this.state;
-
-  //   await fetch('http://localhost:8080/journalists', {
-  //     method: (item.id) ? 'PUT' : 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(item),
-  //   });
-  // }  
-
-  //
 
   render() {
     return (
@@ -82,10 +68,10 @@ class NewsContainer extends React.Component {
             />
             <Route
               path="/journalists"
-              render={() => <JournalistComponent journalists={this.state.journalists}  />}
+              render={() => <JournalistComponent journalists={this.state.journalists} />}
             />
-            <Route path="/addjournalist" 
-            render={() => <AddJournalistForm onJournalistSubmit={this.onJournalistSubmit} />} />
+            <Route path="/addjournalist"
+              render={() => <AddJournalistForm onJournalistSubmit={this.onJournalistSubmit} />} />
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>

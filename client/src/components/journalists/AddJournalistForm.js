@@ -52,24 +52,29 @@ class AddJournalistForm extends Component {
     }
 
     handleRadioButtonChange(event) {
-        let booleanValue 
-        if (event.target.value === "false") {
-            booleanValue = false
-        } else {
-            booleanValue = true
+        const booleanMapping = {
+            "true": true,
+            "false": false
         }
-        this.setState({ employed: booleanValue })
+        this.setState({ employed: booleanMapping[event.target.value] })
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit} >
-                First name: <input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} /><br /> <br />
-                Last name: <input type="text" value={this.state.lastName} onChange={this.handleLastNameChange} /><br /> <br />
-                Phone number: <input type="text" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChange} /><br /><br />
-                Employed?: <input type="radio" name="employed" value="true" onChange={this.handleRadioButtonChange} checked={this.state.employed === "true"} />
+                First name: 
+                <input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                <br /> <br />
+                Last name: 
+                <input type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
+                <br /> <br />
+                Phone number: 
+                <input type="text" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChange} />
+                <br /><br />
+                Employed?: 
+                <input type="radio" name="employed" value="true" onChange={this.handleRadioButtonChange}  />
                 Yes
-                <input type="radio" name="employed" value="false" onChange={this.handleRadioButtonChange} checked={this.state.employed === "false"}/>
+                <input type="radio" name="employed" value="false" onChange={this.handleRadioButtonChange} />
                 No
                 <br /><br />
                 <button type="submit" value="Post" >Add Journalist</button>
