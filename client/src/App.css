@@ -41,3 +41,8 @@ tr:hover {
   background-color: #269ed1;
   color: white;
 }
+
+img {
+  height: 50%;
+  width: 50%;
+}
