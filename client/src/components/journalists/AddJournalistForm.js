@@ -22,7 +22,7 @@ class AddJournalistForm extends Component {
         const lastName = this.state.lastName.trim();
         const phoneNumber = this.state.phoneNumber.trim();
         const employed = this.state.employed;
-        if (!firstName || !lastName || !phoneNumber){
+        if (!firstName || !lastName || !phoneNumber) {
             return
         }
         // this.props.onJournalistSubmit({
@@ -52,7 +52,13 @@ class AddJournalistForm extends Component {
     }
 
     handleRadioButtonChange(event) {
-        this.setState({ employed: event.target.value })
+        let booleanValue 
+        if (event.target.value === "false") {
+            booleanValue = false
+        } else {
+            booleanValue = true
+        }
+        this.setState({ employed: booleanValue })
     }
 
     render() {
