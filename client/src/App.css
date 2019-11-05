@@ -29,7 +29,7 @@ td, th {
   border-collapse: collapse;
   border-radius: 10px;
   padding: 5px;
-  margin: 0;
+  /* margin: 0; */
 }
 
 th{
@@ -52,7 +52,7 @@ button {
 }
 
 img {
-  width: 80%; 
+  width: 90%; 
 }
 
 form {
