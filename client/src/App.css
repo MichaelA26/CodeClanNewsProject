@@ -48,9 +48,19 @@ button {
   border-radius: 10px;
   font-family: 'Lilita One', cursive;
   padding: 10px;
+  margin: 10px;
 }
 
 img {
-  /* height: 50%;
-  width: 50%; */
+  width: 80%; 
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  text-align: left;
+  
 }

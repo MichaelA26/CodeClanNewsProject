@@ -88,17 +88,14 @@ class AddArticleForm extends Component {
             <form onSubmit={this.handleSubmit} >
                 Headline:
                 <input type="text" value={this.state.headline} onChange={this.handleHeadlineChange} />
-                <br /> <br />
                 Date:
                 <input type="date" value={this.state.date} onChange={this.handleDateChange} />
-                <br /> <br />
                 Journalist:
                 <select onChange={this.handleJournalistChange}>
                     {journalistNodes}
                 </select>
                 Story:
                 <input type="text" value={this.state.story} onChange={this.handleStoryChange} />
-                <br /><br />
                 Summary:
                 <input type="text" value={this.state.summary} onChange={this.handleSummaryChange} />
                 Category:

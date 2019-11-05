@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 class AddJournalistForm extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class AddJournalistForm extends Component {
             phoneNumber: "",
             employed: true
         })
+        return <Redirect to = "/http://localhost:3000/journalists" />
     }
 
     handleFirstNameChange(event) {
@@ -64,19 +66,19 @@ class AddJournalistForm extends Component {
             <form onSubmit={this.handleSubmit} >
                 First name: 
                 <input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
-                <br /> <br />
                 Last name: 
                 <input type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
-                <br /> <br />
                 Phone number: 
                 <input type="text" value={this.state.phoneNumber} onChange={this.handlePhoneNumberChange} />
-                <br /><br />
                 Employed?: 
-                <input type="radio" name="employed" value="true" onChange={this.handleRadioButtonChange}  />
-                Yes
-                <input type="radio" name="employed" value="false" onChange={this.handleRadioButtonChange} />
-                No
-                <br /><br />
+                <div>
+                    <input type="radio" name="employed" value="true" onChange={this.handleRadioButtonChange}  />
+                    Yes
+                </div>
+                <div>
+                    <input type="radio" name="employed" value="false" onChange={this.handleRadioButtonChange} />                
+                    No
+                </div>
                 <button type="submit" value="Post" >Add Journalist</button>
             </form>
         )
