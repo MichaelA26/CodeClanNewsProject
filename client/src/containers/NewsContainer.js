@@ -23,11 +23,10 @@ class NewsContainer extends React.Component {
         ]
       }
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
+    this.onArticleSubmit = this.onArticleSubmit.bind(this);
+
     }
   
-
-
-
     componentDidMount(){
 
       const promises = [
@@ -62,6 +61,21 @@ class NewsContainer extends React.Component {
       })
   }
 
+  onArticleSubmit(newArticle) {
+    fetch('http://localhost:8080/articles', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newArticle),
+      })
+      .then(res => res.json())
+      .then(newEntry => {
+        const updatedArticles = [...this.state.articles, newEntry]
+        this.setState({ articles: updatedArticles })
+      })
+  }
 
   render() {
     return (
@@ -83,7 +97,7 @@ class NewsContainer extends React.Component {
             <Route path="/addjournalist"
               render={() => <AddJournalistForm onJournalistSubmit={this.onJournalistSubmit} />} />
              <Route path="/addarticle"
-              render={() => <AddArticleForm journalists={this.state.journalists}/>} />
+              render={() => <AddArticleForm onArticleSubmit={this.onArticleSubmit} journalists={this.state.journalists}/>} />
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>

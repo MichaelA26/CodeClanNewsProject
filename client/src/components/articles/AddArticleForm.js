@@ -17,31 +17,37 @@ class AddArticleForm extends Component {
         this.handleStoryChange = this.handleStoryChange.bind(this);
         this.handleSummaryChange = this.handleSummaryChange.bind(this);
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleSubmit(event) {
-    //     event.preventDefault();
-    //     const headline = this.state.headline.trim();
-    //     const summary = this.state.summary.trim();
-    //     const date = this.state.date.trim();
-    //     const employed = this.state.employed;
-    //     if (!firstName || !lastName || !phoneNumber) {
-    //         return
-    //     }
-    //     this.props.onJournalistSubmit({
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         phoneNumber: phoneNumber,
-    //         employed: employed
-    //     })
-    //     this.setState({
-    //         firstName: "",
-    //         lastName: "",
-    //         phoneNumber: "",
-    //         employed: true
-    //     })
-    // }
+    handleSubmit(event) {
+        event.preventDefault();
+        const headline = this.state.headline.trim();
+        const date = this.state.date.trim();
+        const journalist = this.state.journalist;
+        const story = this.state.story.trim();
+        const summary = this.state.summary.trim();
+        const category = this.state.category.trim();
+        if (!headline || !date || !journalist || !story || !summary || !category) {
+            return
+        }
+        this.props.onArticleSubmit({
+            headline: headline,
+            date: date,
+            journalist: journalist,
+            story: story,
+            summary: summary,
+            category: category
+        })
+        this.setState({
+            headline: "",
+            date: "",
+            journalist: "",
+            story: "",
+            summary: "",
+            category: ""
+        })
+    }
 
     handleHeadlineChange(event) {
         this.setState({ headline: event.target.value })
