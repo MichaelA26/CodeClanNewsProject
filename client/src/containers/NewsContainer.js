@@ -24,6 +24,7 @@ class NewsContainer extends React.Component {
       }
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
     this.onArticleSubmit = this.onArticleSubmit.bind(this);
+    this.deleteArticle = this.deleteArticle.bind(this)
 
     }
   
@@ -77,6 +78,11 @@ class NewsContainer extends React.Component {
       })
   }
 
+  deleteArticle(id){
+    const updatedArray = this.state.articles.filter(article => article.id !== id );
+    this.setState({ articles: updatedArray })
+  }
+
   render() {
     return (
       <Router>
@@ -86,9 +92,11 @@ class NewsContainer extends React.Component {
             "Is it a joke, or is it a weird truth..." </h1>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route
-              path="/articles"
-              render={() => <ArticlesComponent articles={this.state.articles} />}
+            <Route path="/articles"
+              render = {() => < ArticlesComponent 
+                articles = {this.state.articles}
+                deleteArticle = {this.deleteArticle}/>
+              }
             />
             <Route
               path="/journalists"

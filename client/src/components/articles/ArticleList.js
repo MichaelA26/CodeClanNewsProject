@@ -1,10 +1,22 @@
 import React from 'react';
 import ArticleDetail from './ArticleDetail';
 
-const ArticleList = ({articles}) => {
+const ArticleList = ({
+    articles,
+    deleteArticle
+  }) => {
   const articlesNodes = articles.map((article) => {
     return (
-      <ArticleDetail key={article.id} article={article} />
+      < ArticleDetail key = {
+        article.id
+      }
+      article = {
+        article
+      }
+      deleteArticle = {
+        deleteArticle
+      }
+      />
     )
   })
   return(

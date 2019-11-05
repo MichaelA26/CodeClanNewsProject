@@ -10,7 +10,13 @@ class ArticlesComponent extends React.Component {
       <Link to="/addarticle">
       <button>Add new article</button>
       </Link>
-      <ArticleList articles={this.props.articles}/>
+      < ArticleList articles = {
+        this.props.articles
+      }
+      deleteArticle = {
+        this.props.deleteArticle
+      }
+      />
       </div>
     )
   }
