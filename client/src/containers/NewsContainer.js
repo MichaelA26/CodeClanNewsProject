@@ -3,7 +3,7 @@ import HomePage from "../components/HomePage"
 import NavBar from "../components/NavBar"
 import ArticlesComponent from '../components/articles/ArticlesComponent'
 import JournalistComponent from '../components/journalists/JournalistComponent'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ErrorPage from "../components/ErrorPage"
 import AddJournalistForm from '../components/journalists/AddJournalistForm';
 
@@ -14,77 +14,84 @@ class NewsContainer extends React.Component {
     this.state = {
       articles: [],
       journalists: []
-      }
     }
-
-    componentDidMount(){
-    
-      const promises = [
-      fetch('http://localhost:8080/articles')
-      .then(res => res.json())
-      .then(res => res["_embedded"])
-      .then(res => res.articles)
-      .then(data => this.setState({articles: data}))
-        ,
-      fetch("http://localhost:8080/journalists")
-      .then(res => res.json())
-      .then(res => res["_embedded"])
-      .then(res => res.journalists)
-      .then(data => this.setState({journalists: data}))
-      ]
-      Promise.all(promises)
-    }
-
-    //
-    // handleChange(event) {
-    //   const target = event.target;
-    //   const value = target.value;
-    //   const name = target.name;
-    //   let item = {...this.state.item};
-    //   item[name] = value;
-    //   this.setState({item});
-    // }
-  
-    // async handleSubmit(event) {
-    //   event.preventDefault();
-    //   const {item} = this.state;
-  
-    //   await fetch('http://localhost:8080/journalists', {
-    //     method: (item.id) ? 'PUT' : 'POST',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(item),
-    //   });
-    // }  
-
-//
-
-    render(){
-      return(
-        <Router>
-          <React.Fragment>
-            <NavBar />
-            < h1 > Joke News Inc.
-            "Is it a joke, or is it a weird truth..." </h1>
-            <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route 
-              path="/articles" 
-              render={() => <ArticlesComponent articles={this.state.articles}/>}
-              />
-            <Route 
-              path="/journalists" 
-              render={() => <JournalistComponent journalists={this.state.journalists} /> }
-              />
-            <Route path="/addjournalist" component={AddJournalistForm} />
-            <Route component={ErrorPage} />
-            </Switch>
-          </React.Fragment>
-        </Router>
-      );
-    }
+    this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
   }
 
-  export default NewsContainer;
+  componentDidMount() {
+
+    const promises = [
+      fetch('http://localhost:8080/articles')
+        .then(res => res.json())
+        .then(res => res["_embedded"])
+        .then(res => res.articles)
+        .then(data => this.setState({ articles: data }))
+      ,
+      fetch("http://localhost:8080/journalists")
+        .then(res => res.json())
+        .then(res => res["_embedded"])
+        .then(res => res.journalists)
+        .then(data => this.setState({ journalists: data }))
+    ]
+    Promise.all(promises)
+  }
+
+  onJournalistSubmit(newJournalist) {
+    const updatedJournalists = [...this.state.journalists, newJournalist]
+    this.setState({ journalists: updatedJournalists })
+  }
+
+  //
+  // handleChange(event) {
+  //   const target = event.target;
+  //   const value = target.value;
+  //   const name = target.name;
+  //   let item = {...this.state.item};
+  //   item[name] = value;
+  //   this.setState({item});
+  // }
+
+  // async handleSubmit(event) {
+  //   event.preventDefault();
+  //   const {item} = this.state;
+
+  //   await fetch('http://localhost:8080/journalists', {
+  //     method: (item.id) ? 'PUT' : 'POST',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(item),
+  //   });
+  // }  
+
+  //
+
+  render() {
+    return (
+      <Router>
+        <React.Fragment>
+          <NavBar />
+          < h1 > Joke News Inc.
+            "Is it a joke, or is it a weird truth..." </h1>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route
+              path="/articles"
+              render={() => <ArticlesComponent articles={this.state.articles} />}
+            />
+            <Route
+              path="/journalists"
+              render={() => <JournalistComponent journalists={this.state.journalists}  />}
+            />
+            <Route path="/addjournalist" 
+            render={() => <AddJournalistForm onJournalistSubmit={this.onJournalistSubmit} />} />
+            <Route component={ErrorPage} />
+          </Switch>
+        </React.Fragment>
+      </Router>
+    );
+  }
+}
+
+export default NewsContainer;
