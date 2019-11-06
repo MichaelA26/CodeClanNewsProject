@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 const JournalistDetail = ({journalist,onJournalistSelected}) => {
 
+  let history = useHistory();
+
   function handleClick() {
     onJournalistSelected(journalist.id);
-    // this.goToRoute(`journalists/${journalist.id}`)
+    history.push(`journalists/${journalist.id}`)
   }
 
   // const handleDelete = () => {
@@ -24,13 +26,10 @@ const JournalistDetail = ({journalist,onJournalistSelected}) => {
 
   return (
 
-      <tr>
+      <tr onClick={handleClick}>
         <td>{journalist.firstName} {journalist.lastName}</td>
         <td>{journalist.phoneNumber}</td>
         <td>{employed}</td>
-        < Link to = {`journalists/${journalist.id}`}>
-          < td onClick = {handleClick} > ⎇ </td>
-        </Link>
       </tr>
   )
 }
