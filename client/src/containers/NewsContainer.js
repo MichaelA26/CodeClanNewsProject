@@ -9,6 +9,7 @@ import AddJournalistForm from '../components/journalists/AddJournalistForm';
 import AddArticleForm from '../components/articles/AddArticleForm';
 import ArticleView from '../components/articles/ArticleView';
 import JournalistView from '../components/journalists/JournalistView';
+import EditArticleForm from '../components/articles/EditArticleForm';
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -23,8 +24,9 @@ class NewsContainer extends React.Component {
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
     this.onArticleSubmit = this.onArticleSubmit.bind(this);
     this.onArticleSelected = this.onArticleSelected.bind(this);
-    this.onJournalistSelected = this.onJournalistSelected.bind(this)
-    this.deleteArticle = this.deleteArticle.bind(this)
+    this.onJournalistSelected = this.onJournalistSelected.bind(this);
+    this.deleteArticle = this.deleteArticle.bind(this);
+    // this.editArticle = this.editArticle.bind(this);
   }
 
   componentDidMount() {
@@ -78,19 +80,24 @@ class NewsContainer extends React.Component {
   }
 
   onArticleSelected(id) {
-    const selectedArticle = this.state.articles.find((article) => {return article.id === id} )
-    this.setState({currentArticle: selectedArticle})
+    const selectedArticle = this.state.articles.find((article) => { return article.id === id })
+    this.setState({ currentArticle: selectedArticle })
   }
 
-  onJournalistSelected(id){
-    const selectedJournalist = this.state.journalists.find((journalist) => {return journalist.id === id})
-    this.setState({currentJournalist: selectedJournalist})
+  onJournalistSelected(id) {
+    const selectedJournalist = this.state.journalists.find((journalist) => { return journalist.id === id })
+    this.setState({ currentJournalist: selectedJournalist })
   }
 
-  deleteArticle(id){
-    const updatedArray = this.state.articles.filter(article => article.id !== id );
+  deleteArticle(id) {
+    const updatedArray = this.state.articles.filter(article => article.id !== id);
     this.setState({ articles: updatedArray })
   }
+
+  // editArticle(id) {
+  //   const updatedArray = this.bookings.filter(article => article._id === id); 
+  //   // this.articles.splice(id, 1, newBooking);
+  // }
 
   render() {
     return (
@@ -104,10 +111,14 @@ class NewsContainer extends React.Component {
             <Route
               exact path="/articles"
               render={() => (
+<<<<<<< HEAD
                 <ArticlesComponent
                   articles={this.state.articles}
+=======
+                <ArticlesComponent articles={this.state.articles}
+>>>>>>> develop
                   onArticleSelected={this.onArticleSelected}
-                  deleteArticle = {this.deleteArticle}
+                  deleteArticle={this.deleteArticle}
                 />
               )}
             />
@@ -121,10 +132,25 @@ class NewsContainer extends React.Component {
               render={() => <AddArticleForm onArticleSubmit={this.onArticleSubmit} journalists={this.state.journalists} />} />
 
             <Route exact path="/articles/:id"
-              render={() => <ArticleView onArticleSelected={this.handleSelect} article={this.state.currentArticle} />} />
+              render={() => <ArticleView onArticleSelected={this.handleSelect} article={this.state.currentArticle}
+
+              />} />
+
+            <Route exact path="/articles/:id/edit"
+              render={() => <EditArticleForm
+                onArticleSelected={this.handleSelect} 
+                article={this.state.currentArticle} 
+                journalists={this.state.journalists}
+                // editArticle={this.editArticle}
+              />} />
+
 
             <Route exact path="/journalists/:id"
+<<<<<<< HEAD
               render={() => <JournalistView onJournalistSelected={this.handleSelect} journalist={this.state.currentJournalist} /> } />
+=======
+              render={() => <JournalistView onJournalistSelected={this.handleSelect} journalist={this.state.currentJournalist} />} />
+>>>>>>> develop
 
             <Route component={ErrorPage} />
           </Switch>

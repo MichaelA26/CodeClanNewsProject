@@ -1,7 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ArticleView = ({ article }) => {
+const ArticleView = ({ article, editArticle }) => {
     if (!article) return null
+
+    // const handleEdit = () => {
+    //     fetch(`http://localhost:8080/articles/${article.id}`, {
+    //       method: 'PUT', 
+    //       header: {
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json'
+    //     }
+    //     })
+    //     // editArticle(article.id);
+    // }
     
     const journalist = article["_embedded"].journalist
 

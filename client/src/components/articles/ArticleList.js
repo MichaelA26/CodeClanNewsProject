@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleDetail from './ArticleDetail';
 
-const ArticleList = ({ articles, onArticleSelected, deleteArticle }) => {
+const ArticleList = ({ articles, onArticleSelected, deleteArticle, editArticle }) => {
   const articlesNodes = articles.map((article) => {
     return (
       <ArticleDetail 
@@ -9,6 +9,7 @@ const ArticleList = ({ articles, onArticleSelected, deleteArticle }) => {
         article={article} 
         onArticleSelected={onArticleSelected} 
         deleteArticle={deleteArticle} 
+        editArticle={editArticle}
       />
     )
   })
