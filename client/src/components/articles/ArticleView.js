@@ -18,7 +18,6 @@ const ArticleView = ({ article, editArticle }) => {
     const journalist = article["_embedded"].journalist
 
     return (
-        <React.Fragment>
         < form >
             <h3> Headline: {article.headline} </h3> 
             <h3> Category: {article.category} </h3> 
@@ -26,11 +25,7 @@ const ArticleView = ({ article, editArticle }) => {
             <h3> Journalist: {journalist.firstName} {journalist.lastName} </h3> 
             <h3> Summary: {article.summary} </h3> 
             <h3> Story: {article.story} </h3> 
-            </form>
-            <Link to={`/articles/${article.id}/edit`}>
-        <button >Edit</button>
-      </Link>
-            </React.Fragment>
+        </form>
     )
 
 }

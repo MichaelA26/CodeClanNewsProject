@@ -1,7 +1,7 @@
 import React from "react"
 
 const ErrorPage = () => (
-    < img src ="../../public/error.jpg" alt="error" ></ img>
+    <img className="ErrorPage" src ="error.jpg" alt="thelads"></img>
 )
 
 export default ErrorPage;
