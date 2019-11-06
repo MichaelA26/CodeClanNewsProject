@@ -11,7 +11,6 @@ const ArticleDetail = ({ article, onArticleSelected }) => {
   };
 
   return (
-    <React.Fragment>
       <tr>
         <td>{article.headline}</td>
         <td>{article.summary}</td>
@@ -25,7 +24,6 @@ const ArticleDetail = ({ article, onArticleSelected }) => {
 
         </td>
       </tr>
-    </React.Fragment>
   )
 }
 
