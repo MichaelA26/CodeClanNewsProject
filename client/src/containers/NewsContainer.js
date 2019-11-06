@@ -26,7 +26,7 @@ class NewsContainer extends React.Component {
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
     this.onArticleSubmit = this.onArticleSubmit.bind(this);
     this.onArticleSelected = this.onArticleSelected.bind(this);
-
+    this.deleteArticle = this.deleteArticle.bind(this)
   }
 
   componentDidMount() {
@@ -85,6 +85,11 @@ class NewsContainer extends React.Component {
   }
 
 
+  deleteArticle(id){
+    const updatedArray = this.state.articles.filter(article => article.id !== id );
+    this.setState({ articles: updatedArray })
+  }
+
   render() {
     return (
       <Router>
@@ -96,7 +101,13 @@ class NewsContainer extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route
               path="/articles"
-              render={() => <ArticlesComponent articles={this.state.articles} onArticleSelected={this.onArticleSelected} />}
+              render={() => (
+                <ArticlesComponent 
+                  articles={this.state.articles} 
+                  onArticleSelected={this.onArticleSelected}
+                  deleteArticle = {this.deleteArticle}
+                />
+              )}
             />
             <Route
               path="/journalists"

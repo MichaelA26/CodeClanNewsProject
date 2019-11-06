@@ -1,29 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import ArticleView from './ArticleView';
 
-// const ArticleDetail = ({article}) => {
-
-const ArticleDetail = ({ article, onArticleSelected }) => {
+const ArticleDetail = ({ article, onArticleSelected, deleteArticle }) => {
 
   function handleClick() {
     onArticleSelected(article.id);
   };
 
+  const handleDelete = () => {
+    fetch(`http://localhost:8080/articles/${article.id}`, {
+      method: 'DELETE',
+      header: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    deleteArticle(article.id);
+  }
+
   return (
-      <tr>
-        <td>{article.headline}</td>
-        <td>{article.summary}</td>
-        <td>{article.date}</td>
-        <td>{article.category}</td>
-        <td>
-
-          <Link to={`/${article.id}`}>
-            <button onClick={handleClick}>View the full article</button>
-          </Link>
-
-        </td>
-      </tr>
+    <tr>
+      <td>{article.headline}</td>
+      <td>{article.summary}</td>
+      <td>{article.date}</td>
+      <td>{article.category}</td>
+      <td>
+        <Link to={`/${article.id}`}>
+          <button onClick={handleClick}>View the full article</button>
+        </Link>
+      </td>
+      <td onClick={handleDelete} >DELETE</td>
+    </tr>
   )
 }
 

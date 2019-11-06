@@ -1,10 +1,15 @@
 import React from 'react';
 import ArticleDetail from './ArticleDetail';
 
-const ArticleList = ({ articles, onArticleSelected }) => {
+const ArticleList = ({ articles, onArticleSelected, deleteArticle }) => {
   const articlesNodes = articles.map((article) => {
     return (
-      <ArticleDetail key={article.id} article={article} onArticleSelected={onArticleSelected} />
+      <ArticleDetail 
+        key={article.id} 
+        article={article} 
+        onArticleSelected={onArticleSelected} 
+        deleteArticle={deleteArticle} 
+      />
     )
   })
   return (
