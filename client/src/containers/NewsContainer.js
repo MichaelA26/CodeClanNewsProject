@@ -32,7 +32,7 @@ class NewsContainer extends React.Component {
   componentDidMount() {
 
     const promises = [
-      fetch('http://localhost:8080/articles')
+      fetch('http://localhost:8080/articles/search/findArticleOrderByDateDesc')
         .then(res => res.json())
         .then(res => res["_embedded"])
         .then(res => res.articles)
@@ -74,7 +74,7 @@ class NewsContainer extends React.Component {
     })
       .then(res => res.json())
       .then(newEntry => {
-        const updatedArticles = [...this.state.articles, newEntry]
+        const updatedArticles = [newEntry ,...this.state.articles]
         this.setState({ articles: updatedArticles })
       })
   }
@@ -102,8 +102,8 @@ class NewsContainer extends React.Component {
             <Route
               path="/articles"
               render={() => (
-                <ArticlesComponent 
-                  articles={this.state.articles} 
+                <ArticlesComponent
+                  articles={this.state.articles}
                   onArticleSelected={this.onArticleSelected}
                   deleteArticle = {this.deleteArticle}
                 />

@@ -18,9 +18,4 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
-    @GetMapping(value="/articles")
-    public List<Article> getArticlesByDateDesc() {
-        return articleService.findArticleOrderByDateDesc();
-    }
-
 }
