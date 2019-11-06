@@ -10,10 +10,12 @@ class ArticlesComponent extends React.Component {
         <Link to="/addarticle">
           <button>Add new article</button>
         </Link>
+      
         <ArticleList
           articles={this.props.articles}
           onArticleSelected={this.props.onArticleSelected}
-          deleteArticle={this.props.deleteArticle} />
+          deleteArticle={this.props.deleteArticle}
+          editArticle={this.props.editArticle} />
       </div>
     )
   }
