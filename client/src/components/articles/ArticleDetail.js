@@ -1,22 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ArticleDetail = ({ article, onArticleSelected, deleteArticle, editArticle }) => {
+const ArticleDetail = ({ article, onArticleSelected, deleteArticle }) => {
 
   function handleClick() {
     onArticleSelected(article.id);
   };
 
-  const handleDelete = () => {
-    fetch(`http://localhost:8080/articles/${article.id}`, {
-      method: 'DELETE',
-      header: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    deleteArticle(article.id);
-  }
+
 
  
 
@@ -35,7 +26,7 @@ return (
         <button onClick={handleClick}>View the full article</button>
       </Link>
     </td>
-    <td onClick={handleDelete} >DELETE</td>
+    {/* <td onClick={handleDelete} >DELETE</td> */}
   </tr>
 )
 }

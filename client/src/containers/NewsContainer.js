@@ -9,6 +9,7 @@ import AddJournalistForm from '../components/journalists/AddJournalistForm';
 import AddArticleForm from '../components/articles/AddArticleForm';
 import ArticleView from '../components/articles/ArticleView';
 import JournalistView from '../components/journalists/JournalistView';
+import EditArticleForm from '../components/articles/EditArticleForm';
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class NewsContainer extends React.Component {
     this.onArticleSelected = this.onArticleSelected.bind(this);
     this.onJournalistSelected = this.onJournalistSelected.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
-    this.editArticle = this.editArticle.bind(this);
+    // this.editArticle = this.editArticle.bind(this);
   }
 
   componentDidMount() {
@@ -93,9 +94,10 @@ class NewsContainer extends React.Component {
     this.setState({ articles: updatedArray })
   }
 
-  editArticle(id) {
-    console.log(`THIS IS THE ${id}`)
-  }
+  // editArticle(id) {
+  //   const updatedArray = this.bookings.filter(article => article._id === id); 
+  //   // this.articles.splice(id, 1, newBooking);
+  // }
 
   render() {
     return (
@@ -130,10 +132,11 @@ class NewsContainer extends React.Component {
               />} />
 
             <Route exact path="/articles/:id/edit"
-              render={() => <ArticleView 
+              render={() => <EditArticleForm
                 onArticleSelected={this.handleSelect} 
-                article={this.state.currentArticle}
-                editArticle={this.editArticle}
+                article={this.state.currentArticle} 
+                journalists={this.state.journalists}
+                // editArticle={this.editArticle}
               />} />
 
 
