@@ -15,7 +15,7 @@ const JournalistList = ({journalists,onJournalistSelected}) => {
           <th> Name </th> 
           <th> Phone Number </th> 
           <th> Employment Status </th> 
-        </tr> 
+        </tr>
           {journalistsNodes} 
       </table> 
       </React.Fragment>

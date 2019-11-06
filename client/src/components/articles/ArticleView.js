@@ -13,7 +13,7 @@ const ArticleView = ({ article }) => {
             <h3> Journalist: {journalist.firstName} {journalist.lastName} </h3> 
             <h3> Summary: {article.summary} </h3> 
             <h3> Story: {article.story} </h3> 
-            </form>
+        </form>
     )
 
 }

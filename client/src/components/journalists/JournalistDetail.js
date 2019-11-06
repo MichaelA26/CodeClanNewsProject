@@ -23,16 +23,16 @@ const JournalistDetail = ({journalist,onJournalistSelected}) => {
   employed = journalist.employed? "employed" : "not employed"
 
   return (
-    
-      <tr>
+     
+      < tr  > 
         <td>{journalist.firstName} {journalist.lastName}</td>
         <td>{journalist.phoneNumber}</td>
         <td>{employed}</td>
-        < Link to = {`journalists/${journalist.id}`} >
-          <p onClick = {handleClick}> View Details </p>
+        < Link to = {`journalists/${journalist.id}`}>
+          < td onClick = {handleClick} > ⎇ </td>
         </Link>
       </tr>
-    
+       
   )
 }
 
