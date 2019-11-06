@@ -20,10 +20,12 @@ class NewsContainer extends React.Component {
 
       journalists: [
 
-      ]
+      ],
+      currentArticle: null
     }
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
     this.onArticleSubmit = this.onArticleSubmit.bind(this);
+    this.onArticleSelected = this.onArticleSelected.bind(this);
 
   }
 
@@ -77,7 +79,7 @@ class NewsContainer extends React.Component {
       })
   }
 
-  handleSelect(id) {
+  onArticleSelected(id) {
     const selectedArticle = this.state.articles.find((article) => {return article.id === id} )
     this.setState({currentArticle: selectedArticle})
   }
@@ -94,7 +96,7 @@ class NewsContainer extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route
               path="/articles"
-              render={() => <ArticlesComponent articles={this.state.articles} />}
+              render={() => <ArticlesComponent articles={this.state.articles} onArticleSelected={this.onArticleSelected} />}
             />
             <Route
               path="/journalists"
