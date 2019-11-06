@@ -54,57 +54,57 @@ public class DataLoader implements ApplicationRunner {
 
 
     Article article1 = new Article(
-    "Cookie Monster Crisis!",
-    "2019-11-04",
-    journalist1,
-    "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy.",
-    "Cookie Monster falls ill after big feast.",
-    "Celebrity");
+            "Cookie Monster Crisis!",
+            "2019-11-04",
+            journalist1,
+            "After partaking in a glorious cookie bonanza, poor ol' cookie monster discovers that he is gluten intolerant. The aftermath was... Messy.",
+            "Cookie Monster falls ill after big feast.",
+            "Celebrity");
     articleRepository.save(article1);
 
     Article article2 = new Article(
-    "You've Got No Fans",
-    "2019-08-13",
-    journalist1,
-    "I'm the Weildstone Raider and I have a message for your team. You've. Got. No. Fans.",
-    "An important message for fans of lesser clubs.",
-    "Sport");
+            "You've Got No Fans",
+            "2019-08-13",
+            journalist1,
+            "I'm the Weildstone Raider and I have a message for your team. You've. Got. No. Fans.",
+            "An important message for fans of lesser clubs.",
+            "Sport");
     articleRepository.save(article2);
 
     Article article3 = new Article(
-    "The Earth IS flat.",
-    "2019-11-04",
-    journalist2,
-    "Today I read an inspiring Buzzfeed article which PROVED that the Earth is flat. You need to know that the government is lying to you all, let's make Earth flat again! Plz follow me on insta.",
-    "The Earth is flat and that's final",
-    "Science");
+            "The Earth IS flat.",
+            "2019-11-04",
+            journalist2,
+            "Today I read an inspiring Buzzfeed article which PROVED that the Earth is flat. You need to know that the government is lying to you all, let's make Earth flat again! Plz follow me on insta.",
+            "The Earth is flat and that's final",
+            "Science");
     articleRepository.save(article3);
 
     Article article4 = new Article(
-    "Life Change",
-    "2019-10-29",
-    journalist2,
-    "It's been a while coming but I might as well just say it... I am just too famous for you. Too gosh darn famous. You think all this beauty and intelijence comes for free? NO! I officially revoke your right to talk to me unless you're famous.",
-    "An important notice for my fans.",
-    "Celebrity");
+            "Life Change",
+            "2019-10-29",
+            journalist2,
+            "It's been a while coming but I might as well just say it... I am just too famous for you. Too gosh darn famous. You think all this beauty and intelijence comes for free? NO! I officially revoke your right to talk to me unless you're famous.",
+            "An important notice for my fans.",
+            "Celebrity");
     articleRepository.save(article4);
 
     Article article5 = new Article(
-    "UPDATE: Slughorn",
-    "2019-08-20",
-    journalist3,
-    "Hello Pottermore fans! A young Voldemort once asked Slughorn what a horcrux is. The horcrux in question was actually a top secret horcrux written JavaScript. Only a true potions master/software developer like Slughorn would know the truth.",
-    "The secret horcrux.",
-    "Entertainment & Arts");
+            "UPDATE: Slughorn",
+            "2019-08-20",
+            journalist3,
+            "Hello Pottermore fans! A young Voldemort once asked Slughorn what a horcrux is. The horcrux in question was actually a top secret horcrux written JavaScript. Only a true potions master/software developer like Slughorn would know the truth.",
+            "The secret horcrux.",
+            "Entertainment & Arts");
     articleRepository.save(article5);
 
     Article article6 = new Article(
-    "UPDATE: Harry Potter's father",
-    "2019-09-02",
-    journalist3,
-    "Hello Pottermore fans! Harry's dad was not in fact James Potter, but in fact a clone of James Potter known as the mud-blood Enid Blyton",
-    "Harry's dad was actually...",
-    "Entertainment & Arts");
+            "UPDATE: Harry Potter's father",
+            "2019-09-02",
+            journalist3,
+            "Hello Pottermore fans! Harry's dad was not in fact James Potter, but in fact a clone of James Potter known as the mud-blood Enid Blyton",
+            "Harry's dad was actually...",
+            "Entertainment & Arts");
     articleRepository.save(article6);
 
     Article article7 = new Article(
@@ -126,48 +126,48 @@ public class DataLoader implements ApplicationRunner {
     articleRepository.save(article8);
 
     Article article9 = new Article(
-    "How dare you!",
-    "2019-10-10",
-    journalist5,
-    "You guys are trash bro, total f*****g trash",
-    "Complaint against joke news.",
-    "Technology");
+            "How dare you!",
+            "2019-10-10",
+            journalist5,
+            "You guys are trash bro, total f*****g trash",
+            "Complaint against joke news.",
+            "Technology");
     articleRepository.save(article9);
 
     Article article10 = new Article(
-    "Regarding the previous article",
-    "2019-11-05",
-    journalist5,
-    "JOKE'S ON YOU! I TRICKED YOU I DID, YOU GUYS REALLY ARE TRASH!!!!!",
-    "Apologies",
-    "Technology");
+            "Regarding the previous article",
+            "2019-11-05",
+            journalist5,
+            "JOKE'S ON YOU! I TRICKED YOU I DID, YOU GUYS REALLY ARE TRASH!!!!!",
+            "Apologies",
+            "Technology");
     articleRepository.save(article10);
 
     Article article11 = new Article(
-    "A Great Disturbance",
-    "2019-03-11",
-    journalist6,
-    "I felt a great disturbance in the Force, as if millions of voices suddenly cried out in terror and were suddenly silenced.",
-    "Something terrible has happened.",
-    "Crime");
+            "A Great Disturbance",
+            "2019-03-11",
+            journalist6,
+            "I felt a great disturbance in the Force, as if millions of voices suddenly cried out in terror and were suddenly silenced.",
+            "Something terrible has happened.",
+            "Crime");
     articleRepository.save(article11);
 
     Article article12 = new Article(
-    "Journey's on Utapau.",
-    "2019-05-15",
-    journalist6,
-    "Hello there!",
-    "What I said to General Greivous when I confronted him.",
-    "Celebrity");
+            "Journey's on Utapau.",
+            "2019-05-15",
+            journalist6,
+            "Hello there!",
+            "What I said to General Greivous when I confronted him.",
+            "Celebrity");
     articleRepository.save(article12);
 
     Article article13 = new Article(
-    "ESports are Real Sports too",
-    "2019-06-03",
-    journalist7,
-    "Hi it's Jeff from the Overwatch team. Are ESorts sports too? No. A sport involves exercise. But if we tell enough parents that ESports ARE sports then think of all the video games we could sell MWA-HA-HA-HA-HA!!!!!",
-    "The greatest conundrum of 2019, are ESports Sports?",
-    "Sport");
+            "ESports are Real Sports too",
+            "2019-06-03",
+            journalist7,
+            "Hi it's Jeff from the Overwatch team. Are ESorts sports too? No. A sport involves exercise. But if we tell enough parents that ESports ARE sports then think of all the video games we could sell MWA-HA-HA-HA-HA!!!!!",
+            "The greatest conundrum of 2019, are ESports Sports?",
+            "Sport");
     articleRepository.save(article13);
 
     Article article14 = new Article(
