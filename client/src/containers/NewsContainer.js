@@ -26,6 +26,7 @@ class NewsContainer extends React.Component {
     this.onArticleSelected = this.onArticleSelected.bind(this);
     this.onJournalistSelected = this.onJournalistSelected.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
+    this.onArticleEdit = this.onArticleEdit.bind(this)
     // this.editArticle = this.editArticle.bind(this);
   }
 
@@ -79,6 +80,24 @@ class NewsContainer extends React.Component {
       })
   }
 
+  onArticleEdit(updatedArticle) {
+    fetch(`http://localhost:8080/articles/${updatedArticle.id}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedArticle),
+      }).then(() =>
+      fetch('http://localhost:8080/articles/search/findArticleOrderByDateDesc')
+        .then(res => res.json())
+        .then(res => res["_embedded"])
+        .then(res => res.articles)
+        .then(data => this.setState({
+          articles: data
+        })))
+  }
+
   onArticleSelected(id) {
     const selectedArticle = this.state.articles.find((article) => { return article.id === id })
     this.setState({ currentArticle: selectedArticle })
@@ -93,11 +112,6 @@ class NewsContainer extends React.Component {
     const updatedArray = this.state.articles.filter(article => article.id !== id);
     this.setState({ articles: updatedArray })
   }
-
-  // editArticle(id) {
-  //   const updatedArray = this.bookings.filter(article => article._id === id);
-  //   // this.articles.splice(id, 1, newBooking);
-  // }
 
   render() {
     return (
@@ -132,7 +146,8 @@ class NewsContainer extends React.Component {
 
             <Route exact path="/articles/:id/edit"
               render={() => <EditArticleForm
-                onArticleSelected={this.handleSelect}
+                // onArticleSelected={this.handleSelect}
+                onArticleEdit={this.onArticleEdit}
                 article={this.state.currentArticle}
                 journalists={this.state.journalists}
                 // editArticle={this.editArticle}

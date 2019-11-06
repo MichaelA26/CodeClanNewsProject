@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
+import { Link , useHistory } from 'react-router-dom'
 
 const ArticleView = ({ article , deleteArticle}) => {
     let history = useHistory();
@@ -40,6 +40,9 @@ const ArticleView = ({ article , deleteArticle}) => {
             <h3> Summary: {article.summary} </h3> 
             <h3> Story: {article.story} </h3> 
         </form>
+        <Link to={`/articles/${article.id}/edit`}>
+        <button>Edit</button>
+        </Link>
         <button onClick={handleDelete} >Delete</button>
         </div>
 
