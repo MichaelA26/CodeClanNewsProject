@@ -7,12 +7,12 @@ class JournalistComponent extends React.Component {
   render() {
     return(
       <div>
-      <h3>Journalists</h3>
-      <Link to="/addjournalist">
-      <button>Add new journalist</button>
-      </Link>
-      <JournalistList journalists={this.props.journalists}/>
-      
+        <h3>Journalists</h3>
+        <Link to="/addjournalist">
+          <button>Add new journalist</button>
+        </Link>
+        <JournalistList journalists={this.props.journalists} 
+          onJournalistSelected = {this.props.onJournalistSelected} />
       </div>
     )
   }

@@ -23,12 +23,12 @@ const ArticleDetail = ({ article, onArticleSelected, deleteArticle }) => {
   return (
     <tr>
       <td>{article.headline}</td>
-      < td > {journalist.firstName} {journalist.lastName} </td>
+      <td> {journalist.firstName} {journalist.lastName} </td>
       <td>{article.summary}</td>
       <td>{article.date}</td>
       <td>{article.category}</td>
       <td>
-        <Link to={`/${article.id}`}>
+        <Link to={`/articles/${article.id}`}>
           <button onClick={handleClick}>View the full article</button>
         </Link>
       </td>
