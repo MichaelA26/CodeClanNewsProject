@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ErrorPage from "../components/ErrorPage"
 import AddJournalistForm from '../components/journalists/AddJournalistForm';
 import AddArticleForm from '../components/articles/AddArticleForm';
-
+import ArticleView from '../components/articles/ArticleView';
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -16,21 +16,22 @@ class NewsContainer extends React.Component {
     this.state = {
       articles: [
 
-        ],
+      ],
 
-        journalists: [
+      journalists: [
 
-        ]
-      }
+      ],
+      currentArticle: null
+    }
     this.onJournalistSubmit = this.onJournalistSubmit.bind(this);
     this.onArticleSubmit = this.onArticleSubmit.bind(this);
+    this.onArticleSelected = this.onArticleSelected.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this)
+  }
 
-    }
-  
-    componentDidMount(){
+  componentDidMount() {
 
-      const promises = [
+    const promises = [
       fetch('http://localhost:8080/articles')
         .then(res => res.json())
         .then(res => res["_embedded"])
@@ -54,7 +55,7 @@ class NewsContainer extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newJournalist),
-      })
+    })
       .then(res => res.json())
       .then(newEntry => {
         const updatedJournalists = [...this.state.journalists, newEntry]
@@ -70,13 +71,19 @@ class NewsContainer extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newArticle),
-      })
+    })
       .then(res => res.json())
       .then(newEntry => {
         const updatedArticles = [...this.state.articles, newEntry]
         this.setState({ articles: updatedArticles })
       })
   }
+
+  onArticleSelected(id) {
+    const selectedArticle = this.state.articles.find((article) => {return article.id === id} )
+    this.setState({currentArticle: selectedArticle})
+  }
+
 
   deleteArticle(id){
     const updatedArray = this.state.articles.filter(article => article.id !== id );
@@ -92,11 +99,15 @@ class NewsContainer extends React.Component {
             "Is it a joke, or is it a weird truth..." </h1>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/articles"
-              render = {() => < ArticlesComponent 
-                articles = {this.state.articles}
-                deleteArticle = {this.deleteArticle}/>
-              }
+            <Route
+              path="/articles"
+              render={() => (
+                <ArticlesComponent 
+                  articles={this.state.articles} 
+                  onArticleSelected={this.onArticleSelected}
+                  deleteArticle = {this.deleteArticle}
+                />
+              )}
             />
             <Route
               path="/journalists"
@@ -104,8 +115,13 @@ class NewsContainer extends React.Component {
             />
             <Route path="/addjournalist"
               render={() => <AddJournalistForm onJournalistSubmit={this.onJournalistSubmit} />} />
-             <Route path="/addarticle"
-              render={() => <AddArticleForm onArticleSubmit={this.onArticleSubmit} journalists={this.state.journalists}/>} />
+            <Route path="/addarticle"
+              render={() => <AddArticleForm onArticleSubmit={this.onArticleSubmit} journalists={this.state.journalists} />} />
+
+            <Route path="/:id"
+              render={() => <ArticleView onArticleSelected={this.handleSelect} article={this.state.currentArticle} />} />
+
+
             <Route component={ErrorPage} />
           </Switch>
         </React.Fragment>
