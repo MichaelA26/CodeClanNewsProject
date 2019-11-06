@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const ArticleDetail = ({ article, onArticleSelected, deleteArticle }) => {
+const ArticleDetail = ({ article, onArticleSelected }) => {
 
   let history = useHistory();
 
@@ -9,17 +9,6 @@ const ArticleDetail = ({ article, onArticleSelected, deleteArticle }) => {
     onArticleSelected(article.id);
     history.push(`/articles/${article.id}`)
   };
-
-  const handleDelete = () => {
-    fetch(`http://localhost:8080/articles/${article.id}`, {
-      method: 'DELETE',
-      header: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    deleteArticle(article.id);
-  }
 
   const journalist = article["_embedded"].journalist
   
@@ -30,7 +19,6 @@ const ArticleDetail = ({ article, onArticleSelected, deleteArticle }) => {
       <td>{article.summary}</td>
       <td>{article.date}</td>
       <td>{article.category}</td>
-      <td onClick={handleDelete} >DELETE</td>
     </tr>
   )
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 class AddJournalistForm extends Component {
     constructor(props) {
@@ -37,8 +37,7 @@ class AddJournalistForm extends Component {
             lastName: "",
             phoneNumber: "",
             employed: true
-        })
-        return <Redirect to = "/http://localhost:3000/journalists" />
+        }) 
     }
 
     handleFirstNameChange(event) {
