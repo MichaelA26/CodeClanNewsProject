@@ -52,7 +52,11 @@ button {
 }
 
 img {
-  width: 90%; 
+  width: 90%;
+}
+
+.ErrorPage {
+  width: 45%;
 }
 
 form {
@@ -62,5 +66,4 @@ form {
   width: 40%;
   margin: auto;
   text-align: left;
-  
 }

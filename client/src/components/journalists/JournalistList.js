@@ -2,10 +2,10 @@ import React from 'react';
 import JournalistDetail from './JournalistDetail';
 
 
-const JournalistList = ({journalists}) => {
+const JournalistList = ({journalists,onJournalistSelected}) => {
   const journalistsNodes = journalists.map((journalist) => {
     return (
-      <JournalistDetail key={journalist.id} journalist={journalist} />
+      <JournalistDetail key={journalist.id} journalist={journalist} onJournalistSelected={onJournalistSelected} />
     )
   })
   return(
@@ -15,7 +15,7 @@ const JournalistList = ({journalists}) => {
           <th> Name </th> 
           <th> Phone Number </th> 
           <th> Employment Status </th> 
-        </tr> 
+        </tr>
           {journalistsNodes} 
       </table> 
       </React.Fragment>

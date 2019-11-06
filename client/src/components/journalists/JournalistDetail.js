@@ -1,7 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
-const JournalistDetail = ({journalist}) => {
+const JournalistDetail = ({journalist,onJournalistSelected}) => {
+
+  function handleClick() {
+    onJournalistSelected(journalist.id);
+    // this.goToRoute(`journalists/${journalist.id}`)
+  }
 
   // const handleDelete = () => {
   //   fetch(`http://localhost:8080/journalists/${journalist.id}`, {
@@ -12,17 +18,20 @@ const JournalistDetail = ({journalist}) => {
   //     }
   //   })
   // }
- 
-  let employed 
-  employed = journalist.employed? "employed" : "not employed"
+
+  let employed
+  employed = journalist.employed? "Employed" : "Not employed"
 
   return (
-    <tr>
-    <td>{journalist.firstName} {journalist.lastName}</td>
-    <td>{journalist.phoneNumber}</td>
-    <td>{employed}</td>
-    {/* <td onClick={handleDelete} >DELETE</td> */}
-    </tr>
+
+      <tr>
+        <td>{journalist.firstName} {journalist.lastName}</td>
+        <td>{journalist.phoneNumber}</td>
+        <td>{employed}</td>
+        < Link to = {`journalists/${journalist.id}`}>
+          < td onClick = {handleClick} > ⎇ </td>
+        </Link>
+      </tr>
   )
 }
 
