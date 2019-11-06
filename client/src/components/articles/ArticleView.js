@@ -17,16 +17,6 @@ const ArticleView = ({ article , deleteArticle}) => {
         deleteArticle(article.id);
         history.push("/articles")
     }
-    // const handleEdit = () => {
-    //     fetch(`http://localhost:8080/articles/${article.id}`, {
-    //       method: 'PUT', 
-    //       header: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     }
-    //     })
-    //     // editArticle(article.id);
-    // }
     
     const journalist = article["_embedded"].journalist
 

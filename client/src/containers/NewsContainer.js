@@ -10,6 +10,7 @@ import AddArticleForm from '../components/articles/AddArticleForm';
 import ArticleView from '../components/articles/ArticleView';
 import JournalistView from '../components/journalists/JournalistView';
 import EditArticleForm from '../components/articles/EditArticleForm';
+import EditJournalistForm from '../components/journalists/EditJournalistForm';
 
 class NewsContainer extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class NewsContainer extends React.Component {
     this.onJournalistSelected = this.onJournalistSelected.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
     this.onArticleEdit = this.onArticleEdit.bind(this)
-    // this.editArticle = this.editArticle.bind(this);
+    this.onJournalistEdit = this.onJournalistEdit.bind(this)
   }
 
   componentDidMount() {
@@ -98,6 +99,24 @@ class NewsContainer extends React.Component {
         })))
   }
 
+  onJournalistEdit(updatedJournalist) {
+    fetch(`http://localhost:8080/journalists/${updatedJournalist.id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedJournalist),
+    }).then(() =>
+      fetch("http://localhost:8080/journalists")
+        .then(res => res.json())
+        .then(res => res["_embedded"])
+        .then(res => res.journalists)
+        .then(data => this.setState({
+          journalists: data
+        })))
+  }
+
   onArticleSelected(id) {
     const selectedArticle = this.state.articles.find((article) => { return article.id === id })
     this.setState({ currentArticle: selectedArticle })
@@ -152,7 +171,8 @@ class NewsContainer extends React.Component {
                 journalists={this.state.journalists}
                 // editArticle={this.editArticle}
               />} />
-
+            <Route exact path="/journalists/:id/edit" render={() => 
+            <EditJournalistForm onJournalistEdit={this.onJournalistEdit} journalist={this.state.currentJournalist} /> } />
 
             <Route exact path="/journalists/:id"
               render={() => <JournalistView onJournalistSelected={this.handleSelect} journalist={this.state.currentJournalist} /> } />
