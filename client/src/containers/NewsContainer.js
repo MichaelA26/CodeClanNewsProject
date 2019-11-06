@@ -95,7 +95,7 @@ class NewsContainer extends React.Component {
   }
 
   // editArticle(id) {
-  //   const updatedArray = this.bookings.filter(article => article._id === id); 
+  //   const updatedArray = this.bookings.filter(article => article._id === id);
   //   // this.articles.splice(id, 1, newBooking);
   // }
 
@@ -111,12 +111,8 @@ class NewsContainer extends React.Component {
             <Route
               exact path="/articles"
               render={() => (
-<<<<<<< HEAD
                 <ArticlesComponent
                   articles={this.state.articles}
-=======
-                <ArticlesComponent articles={this.state.articles}
->>>>>>> develop
                   onArticleSelected={this.onArticleSelected}
                   deleteArticle={this.deleteArticle}
                 />
@@ -138,19 +134,15 @@ class NewsContainer extends React.Component {
 
             <Route exact path="/articles/:id/edit"
               render={() => <EditArticleForm
-                onArticleSelected={this.handleSelect} 
-                article={this.state.currentArticle} 
+                onArticleSelected={this.handleSelect}
+                article={this.state.currentArticle}
                 journalists={this.state.journalists}
                 // editArticle={this.editArticle}
               />} />
 
 
             <Route exact path="/journalists/:id"
-<<<<<<< HEAD
               render={() => <JournalistView onJournalistSelected={this.handleSelect} journalist={this.state.currentJournalist} /> } />
-=======
-              render={() => <JournalistView onJournalistSelected={this.handleSelect} journalist={this.state.currentJournalist} />} />
->>>>>>> develop
 
             <Route component={ErrorPage} />
           </Switch>
