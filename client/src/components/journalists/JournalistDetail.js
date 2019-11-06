@@ -18,13 +18,13 @@ const JournalistDetail = ({journalist,onJournalistSelected}) => {
   //     }
   //   })
   // }
- 
-  let employed 
-  employed = journalist.employed? "employed" : "not employed"
+
+  let employed
+  employed = journalist.employed? "Employed" : "Not employed"
 
   return (
-     
-      < tr  > 
+
+      <tr>
         <td>{journalist.firstName} {journalist.lastName}</td>
         <td>{journalist.phoneNumber}</td>
         <td>{employed}</td>
@@ -32,7 +32,6 @@ const JournalistDetail = ({journalist,onJournalistSelected}) => {
           < td onClick = {handleClick} > ⎇ </td>
         </Link>
       </tr>
-       
   )
 }
 
