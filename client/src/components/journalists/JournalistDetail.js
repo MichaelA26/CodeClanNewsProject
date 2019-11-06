@@ -6,6 +6,7 @@ const JournalistDetail = ({journalist,onJournalistSelected}) => {
 
   function handleClick() {
     onJournalistSelected(journalist.id);
+    // this.goToRoute(`journalists/${journalist.id}`)
   }
 
   // const handleDelete = () => {
