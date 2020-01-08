@@ -31,7 +31,7 @@ This app was made by:
   [Ahmed Hussein](https://github.com/AhmedHu1993)
   [Chris Haining](https://github.com/chrishaining)
   [Michael Alexander](https://github.com/MichaelA26)
-  [Rob Armstrong](https://github.com/rcarmitage)
+  [Rob Armitage](https://github.com/rcarmitage)
 With thanks to our instructors at [CodeClan](https://codeclan.com/) for all their support.
 
 ## Features we’re proud of:
